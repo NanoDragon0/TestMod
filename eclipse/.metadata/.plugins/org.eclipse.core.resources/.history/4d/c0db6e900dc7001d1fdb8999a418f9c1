@@ -1,0 +1,34 @@
+package me.nanodragon.testmod.Enchant;
+
+import java.lang.reflect.Array;
+import java.util.ListIterator;
+
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import net.minecraft.client.Minecraft;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnumEnchantmentType;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraftforge.event.entity.living.LivingDropsEvent;
+
+public class Abundance_of_experience extends Enchantment{
+
+	public Abundance_of_experience() {
+		super(101, 3, EnumEnchantmentType.weapon);
+		setName("Abundance_of_experience");
+		addToBookList(this);
+	}
+	
+	@SubscribeEvent
+	public void onLivingExperienceDrop(final LivingDropsEvent event, java.util.List<EntityItem> drops) {
+		
+		ListIterator<EntityItem> mobDrop = drops.listIterator();
+		Minecraft.getMinecraft().thePlayer.sendChatMessage("тест");
+	}
+	
+	@Override
+    public int getMaxLevel() {
+        return 3;
+    }
+}

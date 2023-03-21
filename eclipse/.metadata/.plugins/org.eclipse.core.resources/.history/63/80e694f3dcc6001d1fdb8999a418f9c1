@@ -1,0 +1,7 @@
+package me.nanodragon.testmod;
+
+@Mod(modid=)
+
+public class Main {
+
+}

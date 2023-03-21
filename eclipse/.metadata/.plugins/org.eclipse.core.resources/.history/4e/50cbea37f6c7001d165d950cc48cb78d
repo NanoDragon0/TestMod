@@ -1,0 +1,12 @@
+itemGroup.DragonCore=DragonCore
+
+item.necro_helmet.name=Шлем некроманта
+item.necro_plate.name=Нагрудник некроманта
+item.necro_legs.name=Поножи некроманта
+item.necro_boots.name=Ботинки некроманта
+
+item.blood_rage.name=Кровавая ярость
+item.vampire_sword.name=Вампирский меч
+item.hp_rod.name=Палочка жизни
+enchantment.abundance_of_experience.name=Обилие опыта
+enchantment.telekinesis.name=Телекинез

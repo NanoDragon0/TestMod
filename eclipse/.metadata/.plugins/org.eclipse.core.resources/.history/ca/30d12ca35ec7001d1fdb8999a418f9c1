@@ -1,0 +1,22 @@
+package me.nanodragon.testmod.Items;
+
+import cpw.mods.fml.common.registry.GameRegistry;
+import me.nanodragon.testmod.Main;
+import net.minecraft.item.ItemSword;
+import net.minecraftforge.common.util.EnumHelper;
+
+public class Vampire_sword extends ItemSword{
+	
+	static final ToolMaterial vampire = EnumHelper.addToolMaterial("VAMPIRE", 3, 700, 10F, -3F, 18);
+
+	public Vampire_sword() {
+		super(vampire);
+		this.setUnlocalizedName("vampire_sword");
+        this.setTextureName(Main.MODID + ":vampire_sword");
+        this.setMaxStackSize(1);
+        this.setCreativeTab(Main.tabDraconCore);
+        
+        GameRegistry.registerItem(this, "vampire_sword");
+	}
+
+}

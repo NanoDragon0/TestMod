@@ -1,0 +1,56 @@
+package me.nanodragon.testmod.Items;
+
+import java.util.List;
+
+import com.google.common.eventbus.Subscribe;
+
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import me.nanodragon.testmod.Main;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemSword;
+import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.DamageSource;
+import net.minecraftforge.common.util.EnumHelper;
+
+public class Vampire_sword extends ItemSword{
+	
+	static final ToolMaterial vampire = EnumHelper.addToolMaterial("VAMPIRE", 3, 700, 10F, -3F, 18);
+
+	public Vampire_sword() {
+		super(vampire);
+		this.setUnlocalizedName("vampire_sword");
+        this.setTextureName(Main.MODID + ":vampire_sword");
+        this.setMaxStackSize(1);
+        this.setMaxDamage(700);
+        this.setCreativeTab(Main.tabDraconCore);
+        
+        GameRegistry.registerItem(this, "vampire_sword");
+	}
+	
+	@SideOnly(Side.CLIENT)
+    public void addInformation(ItemStack ItemStack, EntityPlayer EntityPlayer, List List) {
+        List.add("§lВосстанавливает 0.5 §4♥§r при нанесении урона");
+        List.add("");
+        List.add("§4Креативный предмет");
+    }
+	
+	
+	public boolean hitEntity(ItemStack itemStack, EntityLivingBase entity, EntityLivingBase player) {
+		
+		//if (player.getHeldItem().getUnlocalizedName().equals(this.getUnlocalizedName()) && player  != null && entity != null && entity.isEntityAlive()) {
+		player.setHealth(20);
+		return true;
+		//}
+		//return false;
+		
+		
+	}
+
+}

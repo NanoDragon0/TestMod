@@ -1,0 +1,74 @@
+[19:41:53] [main/INFO]: Setting user: Player818
+[19:41:55] [Client thread/INFO]: LWJGL Version: 2.9.1
+[19:42:06] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Dragon Core
+[19:42:07] [Sound Library Loader/INFO]: Sound engine started
+[19:42:08] [Client thread/INFO]: Created: 16x16 textures/blocks-atlas
+[19:42:08] [Client thread/INFO]: Created: 16x16 textures/items-atlas
+[19:42:08] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Dragon Core
+[19:42:09] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[19:42:09] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[19:42:10] [Sound Library Loader/INFO]: Sound engine started
+[19:42:49] [Server thread/INFO]: Starting integrated minecraft server version 1.7.10
+[19:42:49] [Server thread/INFO]: Generating keypair
+[19:42:50] [Server thread/INFO]: Preparing start region for level 0
+[19:42:51] [Server thread/INFO]: Changing view distance to 8, from 10
+[19:42:51] [Server thread/INFO]: Player818[local:E:909e25c5] logged in with entity id 282 at (231.19183955056144, 70.0, 239.895133913702)
+[19:42:51] [Server thread/INFO]: Player818 присоединился к игре
+[19:42:54] [Server thread/INFO]: Player818 заработал достижение [Проверить карманы]
+[19:42:54] [Client thread/INFO]: [CHAT] Player818 заработал достижение [Проверить карманы]
+[19:45:29] [Server thread/INFO]: Saving and pausing game...
+[19:45:29] [Server thread/INFO]: Saving chunks for level 'New World'/Overworld
+[19:45:29] [Server thread/INFO]: Saving chunks for level 'New World'/Nether
+[19:45:29] [Server thread/INFO]: Saving chunks for level 'New World'/The End
+[19:45:49] [Server thread/INFO]: Player818 выпал из мира
+[19:45:49] [Client thread/INFO]: [CHAT] Player818 выпал из мира
+[19:45:49] [Client thread/INFO]: [CHAT] Ой! Похоже, это было больно
+[19:46:33] [Server thread/INFO]: [Player818: Точка возрождения Player818 установлена на координаты 401, 64, 9]
+[19:46:33] [Client thread/INFO]: [CHAT] Точка возрождения Player818 установлена на координаты 401, 64, 9
+[19:46:40] [Server thread/INFO]: Player818 выпал из мира
+[19:46:40] [Client thread/INFO]: [CHAT] Player818 выпал из мира
+[19:46:40] [Client thread/INFO]: [CHAT] Ой! Похоже, это было больно
+[19:47:33] [Server thread/INFO]: Saving and pausing game...
+[19:47:33] [Server thread/INFO]: Saving chunks for level 'New World'/Overworld
+[19:47:33] [Server thread/INFO]: Saving chunks for level 'New World'/Nether
+[19:47:33] [Server thread/INFO]: Saving chunks for level 'New World'/The End
+[19:51:43] [Server thread/INFO]: [Player818: Установлено время: 1000]
+[19:51:43] [Client thread/INFO]: [CHAT] Установлено время: 1000
+[19:51:58] [Server thread/INFO]: [Player818: Игровые правила были обновлены]
+[19:51:58] [Client thread/INFO]: [CHAT] Игровые правила были обновлены
+[19:52:46] [Server thread/INFO]: [Player818: Ваш режим игры изменён на Выживание]
+[19:52:46] [Client thread/INFO]: [CHAT] Ваш игровой режим обновлён
+[19:52:55] [Server thread/INFO]: Player818 был взорван Крипер
+[19:52:55] [Client thread/INFO]: [CHAT] Player818 был взорван Крипер
+[19:53:02] [Server thread/INFO]: [Player818: Ваш режим игры изменён на Творческий режим]
+[19:53:02] [Client thread/INFO]: [CHAT] Ваш игровой режим обновлён
+[19:53:12] [Server thread/INFO]: [Player818: Ваш режим игры изменён на Выживание]
+[19:53:12] [Client thread/INFO]: [CHAT] Ваш игровой режим обновлён
+[19:53:41] [Client thread/INFO]: [CHAT] /xp <количество> [игрок] ИЛИ /xp <количество>L [игрок]
+[19:53:57] [Server thread/INFO]: [Player818: Ваш режим игры изменён на Творческий режим]
+[19:53:57] [Client thread/INFO]: [CHAT] Ваш игровой режим обновлён
+[19:54:35] [Server thread/INFO]: [Player818: Ваш режим игры изменён на Выживание]
+[19:54:35] [Client thread/INFO]: [CHAT] Ваш игровой режим обновлён
+[19:54:50] [Server thread/INFO]: [Player818: 100 получил Player818 уровней]
+[19:54:50] [Client thread/INFO]: [CHAT] 100 получил Player818 уровней
+[19:55:49] [Client thread/INFO]: [CHAT] §6[DEBUG]: Шанс 4.272203164135268
+[19:55:50] [Client thread/INFO]: [CHAT] §6[DEBUG]: Шанс 54.865798179405004
+[19:55:50] [Client thread/INFO]: [CHAT] §6[DEBUG]: Излечено 1.05§4?
+[19:55:52] [Client thread/INFO]: [CHAT] §6[DEBUG]: Шанс 49.348930485589094
+[19:55:55] [Client thread/INFO]: [CHAT] §6[DEBUG]: Шанс 84.41890652385884
+[19:55:55] [Client thread/INFO]: [CHAT] §6[DEBUG]: Излечено 1.5750000000000002§4?
+[19:55:56] [Client thread/INFO]: [CHAT] §6[DEBUG]: Шанс 12.035091388011832
+[19:56:19] [Client thread/INFO]: [CHAT] §6[DEBUG]: Излечено 1.35§4?
+[19:56:28] [Client thread/INFO]: [CHAT] §6[DEBUG]: Излечено 2.4§4?
+[19:56:30] [Client thread/INFO]: [CHAT] §6[DEBUG]: Излечено 2.4§4?
+[19:56:37] [Server thread/INFO]: [Player818: 100 потерял Player818 уровней]
+[19:56:37] [Client thread/INFO]: [CHAT] 100 потерял Player818 уровней
+[19:56:41] [Client thread/INFO]: [CHAT] §6[DEBUG]: Излечено 3.0§4?
+[19:56:42] [Client thread/INFO]: [CHAT] §6[DEBUG]: Излечено 3.0§4?
+[19:56:49] [Client thread/INFO]: [CHAT] §6[DEBUG]: Излечено 2.4§4?
+[19:56:53] [Client thread/INFO]: [CHAT] §6[DEBUG]: Излечено 2.4§4?
+[19:56:54] [Client thread/INFO]: [CHAT] §6[DEBUG]: Излечено 2.4§4?
+[19:56:55] [Client thread/INFO]: [CHAT] §6[DEBUG]: Излечено 2.4§4?
+[19:56:56] [Client thread/INFO]: [CHAT] §6[DEBUG]: Излечено 2.4§4?
+[19:57:55] [Server thread/INFO]: [Player818: Ваш режим игры изменён на Творческий режим]
+[19:57:55] [Client thread/INFO]: [CHAT] Ваш игровой режим обновлён

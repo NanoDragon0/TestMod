@@ -1,0 +1,122 @@
+package me.nanodragon.testmod;
+
+import java.util.ArrayList;
+
+import com.google.common.eventbus.Subscribe;
+
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.gameevent.TickEvent;
+import cpw.mods.fml.relauncher.Side;
+import me.nanodragon.testmod.Items.Vampire_sword;
+import me.nanodragon.testmod.Utils.XPUnlock;
+import net.minecraft.client.Minecraft;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.ai.attributes.IAttribute;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.item.EntityXPOrb;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.DamageSource;
+import net.minecraft.world.World;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.minecraftforge.event.entity.living.LivingDropsEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
+
+public class ModEventHandler {
+
+	@SubscribeEvent
+	public void onEntityDeath(LivingDeathEvent event) { //Сущность умирает
+		
+		if(event.source.getEntity() != null && event.source.getEntity() instanceof EntityPlayer && ((EntityPlayer) event.source.getEntity()).getCurrentEquippedItem() != null) {
+			
+			ItemStack equip = ((EntityPlayer) event.source.getEntity()).getCurrentEquippedItem();
+			if (EnchantmentHelper.getEnchantmentLevel(101, equip) > 0 && event.entityLiving instanceof EntityLiving) { //Обилие опыта
+				
+				int xp_addition = 10 * XPUnlock.getXP(((EntityLiving) event.entityLiving)) * EnchantmentHelper.getEnchantmentLevel(101, equip);
+                event.entityLiving.worldObj.spawnEntityInWorld(new EntityXPOrb(event.entityLiving.worldObj, event.entityLiving.posX, event.entityLiving.posY, event.entityLiving.posZ, xp_addition));
+			
+			}
+		}		
+	}
+	
+	@SubscribeEvent
+	public void onLivingEntityDrop(LivingDropsEvent event) {
+		
+		EntityPlayer p;
+		if (event.source.getEntity() instanceof EntityPlayer) {
+			p = (EntityPlayer) event.source.getEntity();
+		} else {
+			return;
+		}
+		
+		ItemStack equip = p.getCurrentEquippedItem();
+		if (EnchantmentHelper.getEnchantmentLevel(102, equip) > 0) { //Телекинез
+			if (event.drops != null) {
+				ArrayList<EntityItem> mobDrop = event.drops;
+				for (int i = 0; i < mobDrop.size(); i++) {
+					p.inventory.addItemStackToInventory(mobDrop.get(i).getEntityItem());
+				}
+				event.drops.clear();
+			}
+		}
+	}
+	
+	@SubscribeEvent
+	public void onEntityDamage(LivingHurtEvent event) {
+
+		EntityPlayer player;
+		if (event.source.getEntity() instanceof EntityPlayer) { player = (EntityPlayer) event.source.getEntity(); } else { return; }
+		if (player == event.entityLiving ) return;
+		
+		//ItemStack[] armor = player.inventory.armorInventory;//  -- Получение массива с слотами брони
+		
+		if (player.getHeldItem() != null && player.getHeldItem().getUnlocalizedName().equals("item.blood_rage") && player != null && event.entityLiving != null && player != event.entityLiving) {
+
+			double rand = Math.random()*100;
+			((EntityPlayer) player).addChatMessage(new ChatComponentText("§6[DEBUG]: Шанс " + rand));
+			if (rand >= 50.0) {
+				player.setHealth((float) (player.getHealth() + event.ammount * 0.1));
+				((EntityPlayer) player).addChatMessage(new ChatComponentText("§6[DEBUG]: Излечено " + event.ammount * 0.1 + "§4♥"));
+			}
+		}
+		
+		/*if (armor[3].getUnlocalizedName().equals("item.necro_helmet")
+				&& armor[2].getUnlocalizedName().equals("item.necro_plate")//  -- Краш при попытке нанести сущности урон
+				&& armor[1].getUnlocalizedName().equals("item.necro_legs")
+				&& armor[0].getUnlocalizedName().equals("item.necro_boots")) {
+			
+			System.out.println("Тест");
+			
+		}*/
+	}
+	
+	/*@SubscribeEvent
+	public void updateArmor(TickEvent.PlayerTickEvent event) {
+		
+		if (event.phase == TickEvent.Phase.START && event.side == Side.SERVER) {
+			EntityPlayer player = event.player;
+			
+			if (player != null) {
+				ItemStack head = player.inventory.armorItemInSlot(103);
+				ItemStack body = player.inventory.armorItemInSlot(102);
+				ItemStack legs = player.inventory.armorItemInSlot(101);
+				ItemStack boots = player.inventory.armorItemInSlot(100);
+				
+				if (head.getUnlocalizedName().equals("item.necro_helmet")
+						&& body.getUnlocalizedName().equals("item.necro_plate")
+						&& legs.getUnlocalizedName().equals("item.necro_legs")
+						&& boots.getUnlocalizedName().equals("item.necro_boots")) {
+					
+				}
+			}
+		}
+	}*/
+	
+}

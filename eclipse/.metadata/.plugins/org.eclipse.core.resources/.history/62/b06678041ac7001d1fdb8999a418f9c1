@@ -1,0 +1,15 @@
+package me.nanodragon.testmod.Enchant;
+
+import net.minecraft.enchantment.Enchantment;
+
+public class AllRegister {
+	
+	public static Enchantment Abundance_of_experience;
+
+	public static void register() {
+		
+		Abundance_of_experience = new Abundance_of_experience();
+		
+	}
+	
+}

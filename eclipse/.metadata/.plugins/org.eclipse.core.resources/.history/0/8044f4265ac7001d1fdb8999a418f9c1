@@ -1,0 +1,31 @@
+package me.nanodragon.testmod.Utils;
+
+import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.registry.GameRegistry;
+import me.nanodragon.testmod.Enchant.Abundance_of_experience;
+import me.nanodragon.testmod.Items.HP_rod;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.item.Item;
+
+public class AllRegister {
+	
+	public static Enchantment Abundance_of_experience;
+	public static Item BonusHP;
+	public static Item Vampire_sword;
+
+	
+	public static void register() {
+	//====================  Блок зачарований  ======================
+		
+		Abundance_of_experience = new Abundance_of_experience();
+		
+	//
+	//====================  Блок предметов  ========================
+		
+		BonusHP = new HP_rod();
+		Vampire_sword = new Vampire_sword();
+		
+	//
+	}
+	
+}

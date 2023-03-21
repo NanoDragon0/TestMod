@@ -1,0 +1,39 @@
+package me.nanodragon.testmod;
+
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import me.nanodragon.testmod.Enchant.EnchantRegistry;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
+import net.minecraftforge.common.MinecraftForge;
+
+@Mod (modid = Main.MODID, name= Main.MODNAME, version = Main.MODVER)
+
+public class Main {
+	
+	public static final String MODID = "DragonCore";
+	public static final String MODNAME = "DragonCore Test Mod";
+	public static final String MODVER = "1.0.0"; //Можно было и просто вписать...
+	
+	public static CreativeTabs tabDraconCore = new CreativeTabs("DragonCore Test") { //Создание креативной вкладки
+		
+		public Item getTabIconItem() {
+			// TODO Автоматически созданная заглушка метода
+			return Item.getItemById(1);
+		}
+	};
+	
+	@EventHandler
+	public void preInt(FMLPreInitializationEvent event) {
+		
+		EnchantRegistry.register();
+		
+		ModEventHandler events = new ModEventHandler();
+		MinecraftForge.EVENT_BUS.register(events);
+		FMLCommonHandler.instance().bus().register(events);
+		
+	}
+	
+}

@@ -1,0 +1,23 @@
+package me.nanodragon.testmod.Items;
+
+import cpw.mods.fml.common.registry.GameRegistry;
+import me.nanodragon.testmod.Main;
+import net.minecraft.item.ItemArmor;
+import net.minecraftforge.common.util.EnumHelper;
+
+public class Necro_armor extends ItemArmor {
+	
+	public static final ItemArmor.ArmorMaterial NECRO_ARMOR_MATERIAL = EnumHelper.addArmorMaterial("dragoncore:necro", 66, new int[]{5, 5, 5, 5}, 30);
+	public static final int addDamage = 8;
+	public static final int vampirism = 15;
+	
+	public Necro_armor(String elementName, int armorType) {
+        super(NECRO_ARMOR_MATERIAL, 0, armorType);
+        setUnlocalizedName("necro_" + elementName);
+        setTextureName(Main.MODID + ":necro_" + elementName);
+        setCreativeTab(Main.tabDraconCore);
+        
+        GameRegistry.registerItem(this, "necro_" + elementName);
+    }
+	
+}

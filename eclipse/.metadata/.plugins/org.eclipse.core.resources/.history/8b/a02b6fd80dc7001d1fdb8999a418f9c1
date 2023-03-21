@@ -1,0 +1,49 @@
+package me.nanodragon.testmod.Enchant;
+
+import java.lang.reflect.Array;
+import java.util.ListIterator;
+
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import me.nanodragon.testmod.Utils.XPUnlock;
+import net.minecraft.client.Minecraft;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.enchantment.EnumEnchantmentType;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.minecraftforge.event.entity.living.LivingDropsEvent;
+
+public class Abundance_of_experience extends Enchantment{
+
+	public Abundance_of_experience() {
+		super(101, 3, EnumEnchantmentType.weapon);
+		setName("Abundance_of_experience");
+		addToBookList(this);
+	}
+	
+	@SubscribeEvent
+	public void onEntityDeath(final LivingDeathEvent  event) {
+		ItemStack equip;
+		if(event.source.getEntity() != null && event.source.getEntity() instanceof EntityPlayer && ((EntityPlayer) event.source.getEntity()).getCurrentEquippedItem() != null) {
+			
+			
+			equip = ((EntityPlayer) event.source.getEntity()).getCurrentEquippedItem();
+		
+			if(EnchantmentHelper.getEnchantmentLevel(101, equip) > 0 && event.entityLiving instanceof EntityLiving) {
+				
+				int xp_addition = XPUnlock.getXP(((EntityLiving) event.entityLiving)) * EnchantmentHelper.getEnchantmentLevel(101, equip);
+				Minecraft.getMinecraft().thePlayer.sendChatMessage("Дополнительный опыт: " + xp_addition);
+			}
+		}		
+	}
+	
+	@Override
+    public int getMaxLevel() {
+        return 3;
+    }
+}

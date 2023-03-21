@@ -1,0 +1,57 @@
+package me.nanodragon.testmod.Items;
+
+import java.util.List;
+
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import me.nanodragon.testmod.Main;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemSword;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.IIcon;
+import net.minecraftforge.common.util.EnumHelper;
+
+public class Vampire_sword extends ItemSword{
+	
+	static final ToolMaterial vampire = EnumHelper.addToolMaterial("VAMPIRE", 3, 700, 10F, -3F, 18);
+	private IIcon icon;
+
+	public Vampire_sword() {
+		super(vampire);
+		this.setUnlocalizedName("vampire_sword");
+        this.setTextureName(Main.MODID + ":vampire_sword");
+        this.setMaxStackSize(1);
+        this.setMaxDamage(700);
+        this.setCreativeTab(Main.tabDraconCore);
+        
+        GameRegistry.registerItem(this, "vampire_sword");
+	}
+	
+	@Override
+    @SideOnly(Side.CLIENT)
+    public void registerIcons(IIconRegister ir) {
+        this.icon = ir.registerIcon("dragoncore:vampire_sword");
+    }
+	
+	@SideOnly(Side.CLIENT)
+    public void addInformation(ItemStack ItemStack, EntityPlayer EntityPlayer, List List, boolean par4) {
+        List.add("§lВосстанавливает 0.5 §4♥§r при нанесении урона");
+        List.add("");
+        List.add("§4Креативный предмет");
+    }
+	
+	public void onHitEntity(ItemStack itemStack, EntityPlayer player, Entity entity, DamageSource source) {
+		
+		if (player.getHeldItem().getUnlocalizedName().equals(this.getUnlocalizedName()) && player  != null && entity != null && entity.isEntityAlive()) {
+			player.setHealth(player.getHealth() + 0.5f);
+		}
+		
+		
+	}
+
+}

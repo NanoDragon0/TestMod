@@ -1,0 +1,30 @@
+package me.nanodragon.testmod.Utils;
+
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import me.nanodragon.testmod.Main;
+import net.minecraft.entity.ai.attributes.IAttribute;
+import net.minecraft.entity.ai.attributes.RangedAttribute;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraftforge.event.entity.EntityEvent;
+
+public class CustomeAttribute {
+	
+	//Отвечает за количество использованных палочек жизни
+	
+	//Объявление нового атрибута
+	// 1-й параметр - Название, 2-й - Базовое значение, 3-й - Минимальное значение, 4-й - Максимальное значение.
+    public static final IAttribute HP_ROD_USE = new RangedAttribute(Main.MODID + ".hp_rod_use", 0.0D, 0.0D, 5.0D).setShouldWatch(true);
+
+    @SubscribeEvent
+    public void onPlayerConstructing(EntityEvent.EntityConstructing event) {
+    
+        if (event.entity instanceof EntityPlayer) {       
+        
+            EntityPlayer player = (EntityPlayer) event.entity;    
+                
+            //HP_ROD_USE
+            player.getAttributeMap().registerAttribute(this.HP_ROD_USE);//Регистрация атрибута "HP_ROD_USE".
+        }    
+    }
+
+}

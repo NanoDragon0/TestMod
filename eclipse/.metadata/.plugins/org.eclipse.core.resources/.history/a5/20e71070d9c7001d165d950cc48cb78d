@@ -1,0 +1,44 @@
+package me.nanodragon.testmod.Utils;
+
+import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.registry.GameRegistry;
+import me.nanodragon.testmod.Enchant.Abundance_of_experience;
+import me.nanodragon.testmod.Enchant.Telekinesis;
+import me.nanodragon.testmod.Items.HP_rod;
+import me.nanodragon.testmod.Items.Vampire_sword;
+import me.nanodragon.testmod.Items.Blood_rage;
+import me.nanodragon.testmod.Items.Necro_armor;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor;
+import net.minecraft.item.ItemSword;
+
+public class AllRegister {
+	
+	public static Enchantment Abundance_of_experience;
+	public static Enchantment Telekinesis;
+	public static Item HP_rod;
+	public static ItemSword Vampire_sword;
+	public static ItemSword Blood_rage;
+
+	public static void register() {
+	//====================  Блок зачарований  ======================
+		
+		Abundance_of_experience = new Abundance_of_experience();
+		Telekinesis = new Telekinesis();
+		
+	//
+	//====================  Блок предметов  ========================
+		
+		HP_rod = new HP_rod();
+		Vampire_sword = new Vampire_sword();
+		Blood_rage = new Blood_rage();
+		ItemArmor NECRO_HELMET = new Necro_armor("helmet", 0);
+	    ItemArmor NECRO_PLATE = new Necro_armor("plate", 1);
+	    ItemArmor NECRO_LEGS = new Necro_armor("legs", 2);
+	    ItemArmor NECRO_BOOTS = new Necro_armor("boots", 3);;
+		
+	//
+	}
+	
+}

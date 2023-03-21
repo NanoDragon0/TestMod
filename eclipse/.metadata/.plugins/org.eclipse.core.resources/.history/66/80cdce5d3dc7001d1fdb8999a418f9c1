@@ -1,0 +1,23 @@
+package me.nanodragon.testmod.Utils;
+
+import me.nanodragon.testmod.Enchant.Abundance_of_experience;
+import net.minecraft.enchantment.Enchantment;
+
+public class AllRegister {
+	
+	public static Enchantment Abundance_of_experience;
+
+	public static void register() {
+	//====================  Блок зачарований  ======================
+		
+		Abundance_of_experience = new Abundance_of_experience();
+		
+	//
+	//====================  Блок предметов  ========================
+		
+		
+		
+	//
+	}
+	
+}

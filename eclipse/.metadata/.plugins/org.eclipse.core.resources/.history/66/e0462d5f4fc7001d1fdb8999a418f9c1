@@ -1,0 +1,61 @@
+package me.nanodragon.testmod.Utils;
+
+import java.util.function.DoubleToIntFunction;
+
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import me.nanodragon.testmod.Main;
+import net.minecraft.entity.ai.attributes.IAttribute;
+import net.minecraft.entity.ai.attributes.RangedAttribute;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.MathHelper;
+import net.minecraftforge.event.entity.EntityEvent;
+
+public class CustomeAttribute {
+	
+	//Отвечает за количество использованных палочек жизни
+	
+	//Объявление нового атрибута
+	
+	private static double HP_ROD_USE_BASE = 0.0D;
+	private static double HP_ROD_USE_MIN = 0.0D;
+	private static double HP_ROD_USE_MAX = 5.0D;
+	
+	// 1-й параметр - Название, 2-й - Базовое значение, 3-й - Минимальное значение, 4-й - Максимальное значение.
+	
+    public static final IAttribute HP_ROD_USE = new RangedAttribute(Main.MODID + ".hp_rod_use", HP_ROD_USE_BASE, HP_ROD_USE_MIN, HP_ROD_USE_MAX).setShouldWatch(true);
+
+    public static final int HP_ROD_USE1 = 0;
+    
+    @SubscribeEvent
+    public void onPlayerConstructing(EntityEvent.EntityConstructing event) {
+    
+        if (event.entity instanceof EntityPlayer) {       
+        
+            EntityPlayer player = (EntityPlayer) event.entity;    
+                
+            //HP_ROD_USE
+            player.getAttributeMap().registerAttribute(this.HP_ROD_USE);//Регистрация атрибута "HP_ROD_USE".
+            player.getDataWatcher().addObject(this.HP_ROD_USE1, (float) this.HP_ROD_USE.getDefaultValue());
+        }    
+    }
+    
+    public void resetHP_ROD_USE(EntityPlayer player) {
+    	player.getDataWatcher().updateObject(HP_ROD_USE1, player);
+    }
+    
+    public static float getHP_ROD_USE(EntityPlayer player) {
+        
+        return player.getDataWatcher().getWatchableObjectFloat(CustomeAttribute.HP_ROD_USE1);
+    }
+    
+    public static float getHP_ROD_USE_MAX(EntityPlayer player) {    
+        
+        return (float) player.getEntityAttribute(CustomeAttribute.HP_ROD_USE).getAttributeValue();            
+    }
+    
+    public static void increaseHP_ROD_USE(EntityPlayer player, float value) {
+
+        player.getDataWatcher().updateObject(CustomeAttribute.HP_ROD_USE1, MathHelper.clamp_float(getHP_ROD_USE(player) - value, 0.0F, getHP_ROD_USE_MAX(player)));
+    }
+
+}

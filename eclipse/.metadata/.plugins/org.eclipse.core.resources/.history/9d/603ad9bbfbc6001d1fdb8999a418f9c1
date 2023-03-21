@@ -1,0 +1,20 @@
+package me.nanodragon.testmod.Enchant;
+
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnumEnchantmentType;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraftforge.event.entity.living.LivingDropsEvent;
+
+public class Abundance_of_experience extends Enchantment{
+
+	public Abundance_of_experience() {
+		super(101, 3, EnumEnchantmentType.weapon);
+		setName("Abundance_of_experience");
+		addToBookList(this);
+	}
+
+	public void onLivingExperienceDrop(final LivingDropsEvent event) {
+		event.drops.get(0);
+	}
+}
